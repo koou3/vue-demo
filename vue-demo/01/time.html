@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue-demo</title>
+  <script src="../00js/js.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <p id="msg">{{ msg }}</p>
+    <p id="time">{{ time }}</p>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello wolrd!',
+        time: '00:00:00'
+      },
+      created() {
+        this.showTime()
+      },
+      methods: {
+        showTime() {
+          let data = new Date();
+          let h = data.getHours();
+          let m = data.getMinutes();
+          let s = data.getSeconds();
+
+          if (h < 10) h = '0' + h;
+          if (m < 10) m = '0' + m;
+          if (s < 10) s = '0' + s;
+
+          this.time = h + ':' + m + ':' + s
+          setTimeout(() => {
+            this.showTime()
+          }, 100)
+        }
+      }
+
+    })
+  </script>
+
+
+  <style>
+    #msg {
+      color: rgb(10, 52, 159);
+      margin-left: 25%;
+      text-align: center;
+      font-size: 50px;
+      background-color: rgb(27, 125, 84);
+      width: 50%;
+    }
+
+    #time {
+      border: ridge rgb(36, 40, 43) 10px;
+      width: 50%;
+
+      margin: auto;
+      color: red;
+      text-align: center;
+      font-size: 100px;
+    }
+  </style>
+
+</body>
+
+</html>
