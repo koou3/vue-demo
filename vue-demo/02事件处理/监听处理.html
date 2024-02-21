@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>按键处理</title>
+    <script src="../00js/js.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model:value="name">
+        <br><input type="text" v-model:value="age">
+
+        <br><p id="value">{{value}}</p>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data: {
+                name:'',
+                age:'',
+                value:''
+            },
+            watch: {
+                name: function(val){
+                    this.value =  this.name + '-->' + this.age
+                },
+                age: function(val){
+                    this.value =  this.name + '-->' + this.age
+                }
+            },
+        })
+    </script>
+    
+</body>
+</html>

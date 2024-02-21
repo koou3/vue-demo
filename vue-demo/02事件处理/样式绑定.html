@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>样式绑定</title></title></title>
+    <script src="../00js/js.js"></script>
+    <style>
+        .active{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p :class="{'active' : flag}"></p>
+        <button v-on:click="click" id="change">{{change}}</button>
+    </div>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                change : '非表示',
+                flag:'true'
+            },
+            methods: {
+                click(){
+                    this.flag = this.flag == true ? false : true
+                    this.change = this.flag == true ? '非表示' : '表示'
+                    console.log(this.flag)
+                }
+            },
+
+        })
+    </script>
+    
+</body>
+</html>
