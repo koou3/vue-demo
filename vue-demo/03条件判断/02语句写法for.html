@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for条件处理判断</title></title>
+    <script src="../00js/js.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ui>
+            <li v-for="(str, index) in strs" :key="index">
+                {{str.name}}={{str.genter}}={{str.age}}
+            </li>
+        </ui>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data: {
+                strs:[
+                    {name : "あ", genter : "男", age : 20},
+                    {name : "い", genter : "女", age : 18},
+                    {name : "う", genter : "女", age : 11},
+                    {name : "え", genter : "男", age : 22},
+                ]
+            }
+        })
+    </script>
+    
+</body>
+</html>

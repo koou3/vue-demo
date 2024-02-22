@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if条件处理判断</title></title>
+    <script src="../00js/js.js"></script>
+    <style>
+        .active{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .active01{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+        .active02{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+        .active03{
+            width: 100px;
+            height: 100px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="click">切り替え</button>
+        <template v-if="(value % 4) === 0">
+            <p :class="{'active' : 'true'}"></p>
+        </template>
+        <template v-else-if="(value % 4) === 1">
+            <p :class="{'active01' : 'true'}"></p>
+        </template>
+        <template v-else-if="(value % 4) === 2">
+            <p :class="{'active02' : 'true'}"></p>
+        </template>
+        <template v-else>
+            <p :class="{'active03' : 'true'}"></p>
+        </template>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                value : 0,
+            },
+            methods: {
+                click(){
+                    this.value++
+                }
+            },
+        })
+    </script>
+    
+</body>
+</html>

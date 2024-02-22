@@ -15,8 +15,11 @@
 </head>
 <body>
     <div id="app">
-        <p :class="{'active' : flag}"></p>
         <button v-on:click="click" id="change">{{change}}</button>
+        
+        <template>
+            <p :class="{'active' : flag}"></p>
+        </template>
     </div>
 
     <script>
@@ -28,7 +31,9 @@
             },
             methods: {
                 click(){
-                    this.flag = this.flag == true ? false : true
+                    //this.flag = this.flag == true ? false : true
+                    this.flag = !this.flag
+
                     this.change = this.flag == true ? '非表示' : '表示'
                     console.log(this.flag)
                 }
