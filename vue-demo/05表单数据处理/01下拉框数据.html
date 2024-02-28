@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01下拉框数据</title>
+    <script src="../00js/js.js"></script>
+</head>
+<body>
+    <div id="app">
+        年:<select v-model:value="year"><option v-for="(y, year) in years" :key="year">{{y}}</option></select>
+        月:<select v-model:value="month"><option v-for="(m, month) in months" :key="month">{{m}}</option></select>
+        日:<select v-model:value="day"><option v-for="(d, day) in days" :key="day">{{d}}</option></select>
+        <button v-on:click="click">確認</button>
+        <p>年:{{year}}月:{{month}}日:{{day}}</p>
+    </div>
+    
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                year:'',
+                month:'',
+                day:'',
+                years:[],
+                months:[],
+                days:[]
+            },
+            created() {
+                this.initYears()
+                this.initMonths()
+                this.initDays()
+            },
+            methods: {
+                initYears(){
+                    let nowYear = new Date().getFullYear()
+                    for(i = 1900; i <= nowYear; i++){
+                        this.years.splice(0,0,i)
+                    }
+                },
+                initMonths(){
+                    for(i = 12; i > 0; i--){
+                        if(i < 10) i = '0' + i
+
+                        this.months.splice(0,0,i)
+                    }
+                },
+                initDays(){
+                    for(i = 31; i > 0; i--){
+                        if(i < 10) i = '0' + i
+
+                        this.days.splice(0,0,i)
+                    }
+                },
+                click(){
+                    if(!this.year || !this.month || !this.day) {
+                        alert("選択してください")
+                        return
+                    }
+                    alert(this.year + this.month + this.day)
+                }
+            },
+        })
+    </script>
+</body>
+</html>

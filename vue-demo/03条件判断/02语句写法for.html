@@ -9,8 +9,16 @@
 <body>
     <div id="app">
         <ui>
+            <!-- 将data中定义的strs（数组或对象都可）进行迭代 -->
             <li v-for="(str, index) in strs" :key="index">
-                {{str.name}}={{str.genter}}={{str.age}}
+                姓名：{{str.name}}，  性别：{{str.sex}}，  年龄：{{str.age}}
+            </li>
+        </ui>
+        <br>
+        <p>-------------------------------------------</p>
+        <ui>
+            <li v-for="(name, index) in strs2" :key="index">
+                {{name}}
             </li>
         </ui>
     </div>
@@ -19,10 +27,13 @@
             el:'#app',
             data: {
                 strs:[
-                    {name : "あ", genter : "男", age : 20},
-                    {name : "い", genter : "女", age : 18},
-                    {name : "う", genter : "女", age : 11},
-                    {name : "え", genter : "男", age : 22},
+                    {name : "张三", sex : "男", age : 20},
+                    {name : "李四", sex : "女", age : 18},
+                    {name : "王五", sex : "女", age : 11},
+                    {name : "赵六", sex : "男", age : 22},
+                ],
+                strs2:[
+                    "张三","李四","王五","赵六"
                 ]
             }
         })

@@ -10,6 +10,7 @@
     <div id="app">
         <input type="text" v-model:value="name">
         <br><input type="text" v-model:value="age">
+        <!-- v-on:click 的简易写法是 @:click-->
         <br><button v-on:click="onclick">OK</button>
         <br><p id="value">{{value}}</p>
     </div>
@@ -23,6 +24,8 @@
             },
             methods: {
                 onclick(){
+                    //获取data中定义的字段需要加this
+                    //类似于成员变量
                     this.value = this.name + '-->' + this.age
                 }
             },

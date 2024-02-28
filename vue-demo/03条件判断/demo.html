@@ -3,47 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>if条件处理判断</title></title>
+    <title>demo</title></title>
     <script src="../00js/js.js"></script>
     <style>
         .active{
-            width: 100px;
-            height: 100px;
-            background-color: red;
+            font-size: 100px;
+            color: yellow;
         }
         .active01{
-            width: 100px;
-            height: 100px;
-            background-color: green;
+            font-size: 100px;
+            color: green;
         }
         .active02{
-            width: 100px;
-            height: 100px;
-            background-color: black;
+            font-size: 100px;
+            color: red;
         }
         .active03{
-            width: 100px;
-            height: 100px;
-            background-color: white;
+            font-size: 100px;
+            color: blue;
         }
     </style>
 </head>
 <body>
     <div id="app">
         <button @click="click">切り替え</button>
-        
-        <!-- v-if="判断语句" 若为真、则显示该信息。反则隐藏-->
         <template v-if="(value % 4) === 0">
-            <p :class="{'active' : 'true'}"></p>
+            <p :class="{'active' : 'true'}">菜</p>
         </template>
         <template v-else-if="(value % 4) === 1">
-            <p :class="{'active01' : 'true'}"></p>
+            <p :class="{'active01' : 'true'}">就</p>
         </template>
         <template v-else-if="(value % 4) === 2">
-            <p :class="{'active02' : 'true'}"></p>
+            <p :class="{'active02' : 'true'}">多</p>
         </template>
         <template v-else>
-            <p :class="{'active03' : 'true'}"></p>
+            <p :class="{'active03' : 'true'}">练</p>
         </template>
     </div>
     <script>

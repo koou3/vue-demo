@@ -10,19 +10,24 @@
 
 <body>
   <div id="app">
+    <!-- 使用{{...}}可单项绑定于data中定义的字段 -->
+    <!-- 这里的 id="xxx" 可省略 -->
     <p id="msg">{{ msg }}</p>
     <p id="time">{{ time }}</p>
   </div>
   <script>
     new Vue({
       el: '#app',
+      //定义字段和初始化字段的写法
       data: {
         msg: 'hello wolrd!',
         time: '00:00:00'
       },
+      //在更新画面时、优先处理此操作
       created() {
         this.showTime()
       },
+      //定义方法的写法
       methods: {
         showTime() {
           let data = new Date();
@@ -40,10 +45,8 @@
           }, 100)
         }
       }
-
     })
   </script>
-
 
   <style>
     #msg {

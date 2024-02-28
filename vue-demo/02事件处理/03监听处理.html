@@ -8,6 +8,7 @@
 </head>
 <body>
     <div id="app">
+        <!-- v-model:value可进行双向绑定、输入的值能即使更新data中定义的值 -->
         <input type="text" v-model:value="name">
         <br><input type="text" v-model:value="age">
 
@@ -21,6 +22,8 @@
                 age:'',
                 value:''
             },
+            //使用监听模式
+            //对某个字段进行监听、如果该字段被更改、则触发指定的操作
             watch: {
                 name: function(val){
                     this.value =  this.name + '-->' + this.age

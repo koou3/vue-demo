@@ -15,9 +15,10 @@
 </head>
 <body>
     <div id="app">
-        <button v-on:click="click" id="change">{{change}}</button>
+        <button @:click="click" id="change">{{change}}</button>
         
         <template>
+            <!-- v-bind:class 可以简写为 :class -->
             <p :class="{'active' : flag}"></p>
         </template>
     </div>
