@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>01组件的用法</title>
+    <script src="../00js/js.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <xxx></xxx>
+
+    </div>
+
+    <script>
+        //创建一个组件名zdy(可任意)
+        const zdy = Vue.extend({
+            name:"zdy",
+            template:`
+                <div id="zujian">
+                    <p>{{msg}}</p><br>
+                    氏名：<input type="text" v-model="info.name"><br>
+                    性別：<input type="radio" id="men" v-model="info.sex" value="男"><label for="men">男</label>
+                    <input type="radio" id="women" v-model="info.sex" value="女"><label for="women">女</label>
+                    <br>住所：<input type="text" v-model="info.address">
+                    <p>{{userInfo}}</p>
+                </div>
+            `,
+            el:'#zujian',
+            data() {
+                return {
+                    msg:'welcome to Vue',
+                    info:{
+                        name:'張三',
+                        address:'東京',
+                        sex:'男'
+                    },
+                    userInfo:''
+                }
+            },
+
+
+        })
+
+        const vm = new Vue({
+            el:'#app',
+
+            /*
+                设置绑定组件
+                "xxx" : 创建的组件名
+                此处key"xxx"是组件的名称
+                这里的xxx可自定义，定义后可直接作为标签使用
+            */
+            components:{
+                "xxx" : zdy
+            }
+        })
+    </script>
+</body>
+
+</html>

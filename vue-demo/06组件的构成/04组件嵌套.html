@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>04组件嵌套</title>
+    <script src="../00js/js.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 自定义组件还可添加样式 -->
+        <student2 style="color: blue;"></student2>
+    </div>
+
+    <script>
+        //创建组件1
+        const student = {
+            name:"student",
+            template:`
+                <div>
+                    <p>学生氏名：{{name}}</p>
+                    <p>学生年齢：{{age}}</p><br>
+                    <hr>
+                </div>
+            `,
+            data() {
+                return {
+                    name:'張三',
+                    age:'20'                    
+                }
+            }
+        }
+        //创建组件2
+        //简写可省略Vue.extends()
+        const student2 = {
+
+            template:`
+                <div>
+                    <!-- 嵌套组件1 -->
+                    <student></student>
+                    <p>学生氏名：{{name}}</p>
+                    <p>学生年齢：{{age}}</p>
+                </div>
+            `,
+            data() {
+                return {
+                    name:'李四',
+                    age:'21'
+                }
+            },
+            //并且设置绑定组件
+            components:{
+                student,
+            }
+        }
+
+        const vm = new Vue({
+            el:'#app',
+            /*
+                当key和value相等是可以不需要定义key
+            */
+            components:{
+                student,
+                student2
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

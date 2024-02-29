@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>03全局组件</title>
+    <script src="../00js/js.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <pege-header></pege-header>
+        <!-- 自定义组件还可添加样式 -->
+        <student style="font-size: 20px;"></student>
+        <hr>
+        <student2 style="color: blue;"></student2>
+    </div>
+
+    <div id="app2">
+        <pege-footer></pege-footer>
+    </div>
+
+    <script>
+
+        /*
+            创建全局组件
+            可重复使用、在自定义组件中也可使用
+        */
+        Vue.component("pege-header",{
+            template:`
+                <div>
+                    <h1>welcome to Vue</h1>
+                    <hr>
+                </div>
+            `
+        }),
+
+        Vue.component("pege-footer",{
+            template:`
+                <div>
+                    <!-- 同理、也可以在定义样式 和注释 -->
+                    <p style="width: 100%;background-color: yellow;height:10px"></p>
+                </div>
+            `
+        })
+
+        //创建组件1
+        const student = {
+            name:"student",
+            template:`
+                <div>
+                    <p>学生氏名：{{name}}</p>
+                    <p>学生年齢：{{age}}</p><br>
+                </div>
+            `,
+            data() {
+                return {
+                    name:'張三',
+                    age:'20'                    
+                }
+            },
+        }
+        //创建组件2
+        //简写可省略Vue.extends()
+        const student2 = {
+
+            template:`
+                <div>
+                    <pege-header></pege-header>
+                    <p>学生氏名：{{name}}</p>
+                    <p>学生年齢：{{age}}</p>
+                </div>
+            `,
+            data() {
+                return {
+                    name:'李四',
+                    age:'21' 
+                }
+            },
+        }
+
+        const vm = new Vue({
+            el:'#app',
+            /*
+                当key和value相等是可以不需要定义key
+            */
+            components:{
+                student,
+                student2
+            }
+        })
+
+        new Vue({
+            el:'#app2',
+        })
+
+    </script>
+</body>
+
+</html>
