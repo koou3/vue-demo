@@ -8,10 +8,10 @@
 </head>
 <body>
     <div id="main">
-        <input type="radio" id="men" v-model="sex" value="men">
+        <input type="radio" id="men" v-model="sex" value="男">
         <label for="men">男</label>
         <br>
-        <input type="radio" id="women" v-model="sex" value="women">
+        <input type="radio" id="women" v-model="sex" value="女">
         <label for="women">女</label>
         <p>{{sex}}</p>
     </div>
@@ -24,10 +24,7 @@
             el:'#main',
             data:{
                 sex:'男'
-            },
-            methods: {
-                
-            },
+            }
         })
     </script>
 </body>
